@@ -15,6 +15,14 @@ namespace javascprit.Controllers
         public IActionResult Calculator()
         {
             return View();
+
         }
+        public IActionResult Calculator2()
+
+        {
+                return View();
+
+        }
+
     }
 }
