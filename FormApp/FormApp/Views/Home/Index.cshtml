@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Sayfa Başlığı</title>
+    <script>
+        function Gonder() {
+            var fullName = $("#FullName").val();
+            var email = $("#Email").val();
+            var message = $("#Message").val();
+
+            $("#Form").hide();
+            $("#Form").show();
+
+            var data = {
+                FullName: fullName,
+                Email: email,
+                Message: message
+                
+                if (fulname.lenght < 3 && fulname.lenght > 150) {
+                    alert ("Lütfen rica ediyorum adam gibi yaz şunu")
+                   return;
+
+                }
+            };
+            var json = JSON.stringify(data);
+            $.ajax({
+                type: "POST",
+                url: "/contact/Send",
+                data:json,
+                success: Gonder_Callback,
+                dataType: "json",
+                'cntent type' : 'application/json'
+            });
+
+        }
+        function Gonder_Callback(result)
+        $("#Sending").show();
+        $("#Sending").hide();
+        console.log(result)
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div id="Form">
+        <form>
+            <input type="text" id="FullName" placeholder="Adınız" />
+            <br />
+            <input type="email" id="Email" placeholder="E-Posta Adresiniz" />
+            <br />
+            <textarea id="Message"> </textarea>
+            <br />
+            <input type="button" value="Gönder" onclick="Gonder();" />
+        </form>
+        <div style="display:none">
+
+        </div>
+    </div>
+
+</body>
+</html>
