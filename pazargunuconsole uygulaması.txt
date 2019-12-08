@@ -1,0 +1,429 @@
+Girilen kelimeyi tersten yazdýrma
+
+  string metin;
+            Console.Write("Tersten Yazýlacak Metni Giriniz = ");
+            metin = Console.ReadLine();
+            for (int i = 0; i <=metin.Length - 1; i++)
+            {
+                Console.Write(metin[metin.Length - i - 1]);
+            }
+            Console.ReadLine(); 
+---------------------------------------------------------------------
+Palindrome:
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
+0 dan 10 kadar sayýlarý ekrana yazdýrmayazdýrma
+                   int i;
+            Console.Write("Bir sayý giriniz:");
+            a = Convert.ToInt32(Console.ReadLine());
+            for (i = 0; i <= a; i++)
+            {
+                Console.WriteLine(i);
+            }
+            Console.ReadKey();
+---------------------------------------------------------------
+Tanýmlý array sayýlarýný toplamak
+            Random rnd = new Random();
+            int[] sayilar = new int[3];
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                sayilar[i] = rnd.Next(1, 100);
+            }
+
+            foreach(int sayac in sayilar)
+            {
+                Console.WriteLine(sayac)
+            }
+
+            Console.WriteLine("Dizi içindeki sayýlarýn toplamý :" + Topla(sayilar));
+            Console.WriteLine("-----------------------------------------------");
+
+          
+            Console.ReadKey();
+        }
+
+
+
+        public static int Topla(int[] dizi)
+        {
+            int toplam = 0;
+            for (int i = 0; i < dizi.Length; ++i)
+                toplam += dizi[i];
+            return toplam;
+        }
+-------------------------------------------------------------------------------------------
+Tanýmlý int arrayden en büyük elemaný bulmak
+
+            int buyuk = sayilar[0];
+
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                if (buyuk < sayilar[i])
+                { buyuk = sayilar[i]; }
+            }
+            return buyuk;
+        }
+
+        static void Main(string[] args)
+        {
+            int kucuk = sayilar[0];
+
+            for (int i = 0; i < sayilar.Length; i++)
+            {
+                if (kucuk < sayilar[i])
+                { kucuk = sayilar[i]; }
+            }
+            return kucuk;
+        }
+
+        static void Main(string[] args)
+        {
+
+
+            int[] dizi = { 1, 4, 0, 100, 6 };
+
+            int minimum = Min(dizi);
+            Console.WriteLine(minimum);
+            Console.ReadLine();
+-------------------------------------------------------------------
+Girilen 10 sayýdan ortalamasýna en yakýn olaný bulmak
+
+            int[] dizi = { 1, 4, 0, 100, 6 };
+
+            int maximum = Max(dizi);
+            Console.WriteLine(maximum);
+            Console.ReadLine();
+----------------------------------------------------------------------------
+Tanýmlý int arrayden en küçük elemaný bulmak
+
+
+
+
+        static void Main(string[] args)
+        {
+            int[] array = { 545, 23,43,32,23, 45, 4, 45, 45, 7, 47, 23,12312,213232,2323 };
+            int avg = (int)array.Average();
+            List<Tuple<int, int>> list = new List<Tuple<int, int>>();
+
+            foreach (int sayi in array)
+            {
+                list.Add(new Tuple<int, int>(sayi, sayi - avg));
+            }
+
+            Tuple<int, int> first = new Tuple<int, int>(0,0);
+            Tuple<int, int> second = new Tuple<int, int>(0, 0);
+
+            for (int i = 0; i < int.MaxValue; i++)
+            {
+                Tuple<int, int> m = list.FirstOrDefault(a => a.Item2.Equals(i));
+                if (m != null)
+                {
+                    first = m;
+                    break;
+                }
+            }
+
+            for (int i = 0; i > int.MinValue; i--)
+            {
+                Tuple<int, int> m = list.FirstOrDefault(a => a.Item2.Equals(i));
+                if (m != null)
+                {
+                    second = m;
+                    break;
+                }
+            }
+
+            if (first.Item2 - second.Item2 > second.Item2 - first.Item2)
+            {
+                Console.WriteLine(second.Item1);
+            }
+            else
+            {
+                Console.WriteLine(first.Item1);
+            }
+
+            Console.ReadKey();
+----------------------------------------------------------------------------------------
+Kullanýcýnýn girdiði sayý kadar isim ve soyisiminizi yazdýrýn
+            int sayi;
+            Console.WriteLine("Adýný daðlara yazayým ama kaç defa:");
+            sayi = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= sayi; i++)
+            {
+                Console.WriteLine("Muhammet Ölker");
+            }
+--------------------------------------------------------------------------------------
+
+Girilen 10 sayýnýn negative/pozitif olduðunu yazdýrma
+            int[] dizi = new int[100];
+            int negatif = 0, pozitif = 0;
+            Random rnd = new Random();
+
+            for (int i = 0; i < 100; i++)
+            {
+                dizi[i] = rnd.Next(-100, 100);
+                Console.Write(dizi[i] + " ");
+                if (dizi[i] < 0)
+                { negatif++; }
+                if (dizi[i] > 0)
+                { pozitif++; }
+            }
+            Console.WriteLine();
+            Console.WriteLine("******************");
+            Console.WriteLine("Negatif Sayý Adeti : {0}", negatif);
+            Console.WriteLine("Pozitif Sayý Adeti : {0}", pozitif);
+            Console.ReadKey();
+        }
+------------------------------------------------------------------------
+
+kullanýcýdan alýnan deger int ný degðilmi
+sing System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace C_Sharp_Konsol_Metot_Girilen_Deger_Sayi_Mi
+{
+    class Metot_Girilen_Deger_Sayi_Mi
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Bir sayi girininiz");
+
+            // Girilen karakter veya karakterleri 'girilen' string deðiþkenine kaydet
+
+            string girilen = Console.ReadLine();
+
+            // bu metod ile 'girilen' deðiþkenindeki karakterler for döngüsü ile
+
+            // teker teker dönülerek karakterin sayi olup olmadýðýný kontrol eder
+
+            bool durum = sayiMi_for(girilen);
+
+            if (durum)
+                Console.WriteLine("\nGirilen deðer bir sayýdýr");
+            else
+                Console.WriteLine("\nGirilen deðer bir sayý deðildir");
+
+
+            Console.WriteLine("\nBir sayi girininiz");
+
+            // Girilen karakter veya karakterleri 'girilen' string deðiþkenine kaydet
+
+            girilen = Console.ReadLine();
+
+
+            // bu metod ile 'girilen' deðiþkenindeki karakterler int.parse() metodu ile
+
+            // sayýya çevrilir. Eðer bu deðer sayý ise hata vermes sonraki adýma devam eder
+
+            // Eðer sayý deðilse hata veri ve try - catch kontrolünün catch kýsmýna atlar 
+
+            durum = sayiMi_try(girilen);
+
+            if (durum)
+                Console.WriteLine("\nGirilen deðer bir sayýdýr");
+            else
+                Console.WriteLine("\nGirilen deðer bir sayý deðildir");
+
+
+            Console.ReadKey();
+
+
+            /*
+             * Programýn çýktýsý:
+             * 
+            Bir sayi girininiz
+            342143
+
+            Girilen deðer bir sayýdýr
+
+            Bir sayi girininiz
+            32412r3
+
+            Girilen deðer bir sayý deðildir
+            */
+
+        }
+        static bool sayiMi_for(string a)
+        {
+            bool sonuc = true;
+            for (int i = 0; i < a.Length; i++)
+                if (!char.IsDigit(a[i]))
+                    sonuc = false;      //Eðer karakter sayý deðilse false döner
+
+            return sonuc;
+
+        }
+
+        static bool sayiMi_try(string deger)
+        {
+            try
+            {
+                int.Parse(deger);// deger deðiþkeni int tipine dönüþtürür.
+                // Dönüþüm baþarýlý ise aþaðýdaki kodu tamamlayýp catch kýsmýna girmeden
+                // try - catch bloðundan çýkar
+                // Dönüþtüremezse try ýn catch kýsmýna atlar
+                return true;  //Eðer deger sayý ise true döner
+
+            }
+            catch (Exception)
+            {
+                return false; //Eðer deger sayý deðilse false döner
+            }
+        }
+    }
+}
+-----------------------------------------------------------------
+Kullanýcýnýn girdiði deger tekmi çift mi
+            double sayi = 0;
+            Console.Write("Sayý giriniz:");
+            sayi = Convert.ToDouble(Console.ReadLine());
+            double kalan = sayi % 2;
+
+            if (kalan == 0)
+            {
+                Console.Write("Girdiðiniz sayý ÇÝFT'tir.");
+            }
+            else
+            {
+                Console.Write("Girdiðiniz sayý TEK'tir.");
+            }
+            Console.ReadKey();
+---------------------------------------------------------------
+1ooo e kadar olan sayýlarýn içinde kaç tane tek kaçtane çift sayý var?
+            int sayac_c = 0;
+            int sayac_t = 0;
+            for (int i = 0; i <= 1000; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(i + " çift");
+                    sayac_c++;
+                }
+                else
+                {
+                    Console.WriteLine(i + " tek");
+                    sayac_t++;
+                }
+
+            }
+            Console.WriteLine("Çift sayýlar: " + sayac_c);
+            Console.WriteLine("Tek sayýlar: " + sayac_t);
+            Console.WriteLine("Tamammý Gardaþ");
+            Console.ReadLine();
+---------------------------------------------------------------------------
+
+Tek bir array da tanýmlý sayýlarý tekler ve çiftler olmak üzere 2 ayrý arraye taþýyalým
+
+
+
+
+
+
+---------------------------------------------------------------------------------
+kullanýcýný girdiði kelimedeki karakter sayýsýný bulmak
+            Console.Write("Bir kelime Girin ");
+            string cumle = Console.ReadLine();   
+            int uzunluk = 0;
+            try
+            {
+                char harf;
+                while (true)
+                {
+                    harf = cumle[uzunluk];
+                    uzunluk++;
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+            }
+            Console.WriteLine("'{0}' ifadesi {1} karakter uzunluðundadýr", cumle, uzunluk);
+            Console.ReadKey();
+-------------------------------------------------------------------------------------
+Girilen kelimedeki A-Z-0-9'a karakter sayýlarýný bulma
+         char[] text = Console.ReadLine().ToCharArray();
+            string wtext = "";
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (wtext.Contains(text[i]) == false)
+                {
+                    Console.WriteLine(text[i] + " harfinden " + text.Count(x => x == text[i]) + " tane var");
+                    wtext += text[i].ToString();
+                }
+            }
+            Console.ReadKey();
+----------------------------------------------------------------------------------------------
+Girilen Cümledeki kelime sayýsý
+            string metin;
+            Console.Write("Metni Girin  : ");
+            metin = Console.ReadLine();
+            string[] kelimeler = metin.Split(' ');
+            Console.WriteLine("Kelime Sayýsý :" + kelimeler.Length);
+            foreach (string kelime in kelimeler)
+            {
+                Console.WriteLine(kelime);
+            }
+            Console.ReadKey();
+-----------------------------------------------
+Buble Sort
+
+            int[] dizi = { 6, 12, 24, 3, 8, 4 };
+            kabarcikSirala(dizi);
+            diziYazdir(dizi);
+        }
+
+        public static void kabarcikSirala(int[] siralanacakDizi)
+        {
+
+            int i = 1, j, deger;
+            int diziAdet = siralanacakDizi.Length;
+            while (i < diziAdet)
+            {
+                j = diziAdet - 1;
+                while (j >= 1)
+                {
+                    if (siralanacakDizi[j - 1] > siralanacakDizi[j])
+                    {
+                        deger = siralanacakDizi[j];
+                        siralanacakDizi[j] = siralanacakDizi[j - 1];
+                        siralanacakDizi[j - 1] = deger;
+                    }
+                    j--;
+                }
+                i++;
+            }
+        }
+
+        public static void diziYazdir(int[] dizi)
+        {
+
+            for (int i = 0; i < dizi.Length; i++)
+            {
+                Console.WriteLine(dizi[i]);
+            }
+            Console.ReadKey();
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
