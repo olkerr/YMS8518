@@ -42,6 +42,8 @@ namespace ProductOrder.Models
         public int? ReportsTo { get; set; }
         [ForeignKey("ReportsTo")]
         public Employee EmployeeReportsTo { get; set; }
+        [MaxLength(255)]
+
         public string PhotoPath { get; set; }
 
 
